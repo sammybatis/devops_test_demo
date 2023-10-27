@@ -20,3 +20,21 @@ hooks:
     - location: scripts/basic_health_check.sh
 
 
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  build:
+    commands:
+      - mvn install
+artifacts:
+  files:
+    - target/javawebdemo.war
+    - appspec.yml
+    - scripts/**/*
+  discard-paths: no
+
+
+
